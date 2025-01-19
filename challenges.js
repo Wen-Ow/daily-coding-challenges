@@ -159,6 +159,17 @@ computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------------------*/
 // Your solution for 05-computeRemainder here:
 
+function computeRemainder(dividend, divisor) {
+  if (divisor === 0) {
+    return Infinity;
+  }
+  return dividend - Math.floor(dividend / divisor) * divisor;
+}
+
+console.log(computeRemainder(10, 2)); // 0
+console.log(computeRemainder(4, 0)); // Infinity
+console.log(computeRemainder(10.5, 3)); // 1.5
+
 /*-----------------------------------------------------------------------------
 Challenge: 06-range
 
@@ -181,6 +192,23 @@ range(1,1) //=> []
 range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------------------*/
 // Your solution for 06-range here:
+
+function range(start, end) {
+  if (start > end) {
+    return "First argument must be less than second";
+  }
+
+  const result = [];
+  for (let i = start; i < end; i++) {
+    result.push(i);
+  }
+  return result;
+}
+
+console.log(range(1, 4)); // [1, 2, 3]
+console.log(range(-2, 3)); // [-2, -1, 0, 1, 2]
+console.log(range(1, 1)); // []
+console.log(range(5, 2)); // "First argument must be less than second"
 
 /*-----------------------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
