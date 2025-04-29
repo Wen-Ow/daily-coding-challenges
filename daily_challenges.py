@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 Challenge: 00-sayHello (example)
 
 Difficulty: Basic
@@ -10,14 +10,11 @@ Write a function called sayHello that returns the string "Hello!".
 Examples:
 
 sayHello() //=> Hello!
------------------------------------------------------------------------------*/
-// Your solution for 00-sayHello (example) here:
-// Note: Functions are blocks of reusable code. The function below simply returns a string "Hello!" when called.
-function sayHello() {
-  return "Hello!";
-}
+# -----------------------------------------------------------------------------
+def say_hello():
+    return "Hello!"
 
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 01-addOne
 
 Difficulty: Basic
@@ -31,17 +28,12 @@ Examples:
 
 addOne(1) //=> 2
 addOne(-5) //=> -4
------------------------------------------------------------------------------*/
+#----------------------------------------------------------------------------
 // Your solution for 01-addOne here:
-// Note: The function below takes a single number as an argument and returns that number plus 1.
-function addOne(number) {
-  return number + 1;
-}
+def add_one(num):
+    return num + 1
 
-console.log(addOne(1)); // 2
-console.log(addOne(-5)); // -4
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 02-addTwoNumbers
 
 Difficulty: Basic
@@ -58,23 +50,13 @@ addTwoNumbers(5, 10) //=> 15
 addTwoNumbers(10, -2) //=> 8
 addTwoNumbers(0, 0) //=> 0
 addTwoNumbers('Hello', 5) //=> NaN
------------------------------------------------------------------------------*/
-// Your solution for 02-addTwoNumbers here:
-// Note: The function below accepts two numeric arguments and returns the sum of those two numbers.
-// Note: Use typeof to check the data type of a variable.
-function addTwoNumbers(a, b) {
-  if (typeof a !== "number" || typeof b !== "number") {
-    return NaN;
-  }
-  return a + b;
-}
+#----------------------------------------------------------------------------
+def add_two_numbers(a, b):
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        return float('nan')
+    return a + b
 
-console.log(addTwoNumbers(5, 10)); // 15
-console.log(addTwoNumbers(10, -2)); // 8
-console.log(addTwoNumbers(0, 0)); // 0
-console.log(addTwoNumbers("Hello", 5)); // Nan
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 03-sumNumbers
 
 Difficulty: Basic
@@ -91,22 +73,14 @@ sumNumbers([10]) //=> 10
 sumNumbers([5, 10]) //=> 15
 sumNumbers([2, 10, -5]) //=> 7
 sumNumbers([]) //=> 0
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 03-sumNumbers here:
-// Note: The function below accepts a single array of numbers and returns the sum of the numbers in the array using the reduce() method.
-function sumNumbers(numbers) {
-  if (numbers.length === 0) {
-    return 0;
-  }
-  return numbers.reduce((sum, num) => sum + num, 0);
-}
+def sum_numbers(numbers):
+    if not numbers:
+        return 0
+    return sum(numbers)
 
-console.log(sumNumbers([10])); // 10
-console.log(sumNumbers([5, 10])); // 15
-console.log(sumNumbers([2, 10, -5])); // 7
-console.log(sumNumbers([])); // 0
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 04-addList
 
 Difficulty: Basic
@@ -123,21 +97,14 @@ Examples:
 addList(1) //=> 1
 addList(1,50,1.23) //=> 52.23
 addList(7,-12) //=> -5
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 04-addList here:
-// Note: This uses the spread operator (...) to handle any number of arguments passed to the function.
-function addList(...numbers) {
-  if (numbers.length === 0) {
-    return 0;
-  }
-  return numbers.reduce((sum, num) => sum + num, 0);
-}
+def add_list(*numbers):
+    if not numbers:
+        return 0
+    return sum(numbers)
 
-console.log(addList(1)); // 1
-console.log(addList(1, 50, 1.23)); // 52.23
-console.log(addList(7, -12)); // -5
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 05-computeRemainder
 
 Difficulty: Basic
@@ -157,21 +124,14 @@ Examples:
 computeRemainder(10,2) //=> 0
 computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 05-computeRemainder here:
-// Note: Without using the modulus (%) operator, the function below accepts two numeric arguments and returns the remainder of the division of those two numbers.
-function computeRemainder(dividend, divisor) {
-  if (divisor === 0) {
-    return Infinity;
-  }
-  return dividend - Math.floor(dividend / divisor) * divisor;
-}
+def compute_remainder(dividend, divisor):
+    if divisor == 0:
+        return float('inf')
+    return dividend - (dividend // divisor) * divisor
 
-console.log(computeRemainder(10, 2)); // 0
-console.log(computeRemainder(4, 0)); // Infinity
-console.log(computeRemainder(10.5, 3)); // 1.5
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 06-range
 
 Difficulty: Basic
@@ -191,27 +151,14 @@ range(1,4) //=> [1,2,3]
 range(-2, 3) //=> [-2,-1,0,1,2]
 range(1,1) //=> []
 range(5,2) //=> "First argument must be less than second"
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 06-range here:
-// Note: Loops can generate arrays by pushing values to an empty array.
-function range(start, end) {
-  if (start > end) {
-    return "First argument must be less than second";
-  }
+def range_list(start, end):
+    if start > end:
+        return "First argument must be less than second"
+    return list(range(start, end))
 
-  const result = [];
-  for (let i = start; i < end; i++) {
-    result.push(i);
-  }
-  return result;
-}
-
-console.log(range(1, 4)); // [1, 2, 3]
-console.log(range(-2, 3)); // [-2, -1, 0, 1, 2]
-console.log(range(1, 1)); // []
-console.log(range(5, 2)); // "First argument must be less than second"
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
 
 Difficulty: Basic
@@ -226,16 +173,12 @@ Prompt:
 Examples:
 
 reverseUpcaseString("SEI Rocks!") //=> "!SKCOR IES" 
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 07-reverseUpcaseString here:
-// Note: split() turns a string into an array, reverse() reverses it, and join() combines it.
-function reverseUpcaseString(str) {
-  return str.split("").reverse().join("").toUpperCase();
-}
+def reverse_upcase_string(s):
+    return s[::-1].upper()
 
-console.log(reverseUpcaseString("SEI Rocks!")); // "!SKCOR IES"
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 08-removeEnds
 
 Difficulty: Basic
@@ -250,16 +193,12 @@ Examples:
 
 removeEnds('SEB Rocks!') //=> "EB Rocks"
 removeEnds('a') //=> "" (empty string)
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 08-removeEnds here:
-// Note: slice() extracts a section of a string and returns it as a new string.
-function removeEnds(str) {
-  return str.length < 3 ? "" : str.slice(1, -1);
-}
+def remove_ends(s):
+    return "" if len(s) < 3 else s[1:-1]
 
-console.log(removeEnds("SEB Rocks!")); // "EB Rocks"
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 09-charCount
 
 Difficulty: Basic
@@ -294,19 +233,15 @@ charCount('Today is fantastic!')
   c: 1, 
   '!': 1 
 }
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 09-charCount here:
-// Note: Objects store key-value pairs and are useful for storing data in a structured way. This counts characters as keys.
-function charCount(str) {
-  const count = {};
-  for (const char of str) {
-    count[char] = count[char] ? count[char] + 1 : 1;
-  }
-  return count;
-}
+def char_count(s):
+    count = {}
+    for char in s:
+        count[char] = count.get(char, 0) + 1
+    return count
 
-console.log(charCount("hello")); // { h: 1, e: 1, l: 2, o: 1 }
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 10-formatWithPadding
 
 Difficulty: Basic
@@ -329,15 +264,12 @@ Examples:
 formatWithPadding(123, '0', 5) //=> "00123"
 formatWithPadding(42, '*', 10) //=> "********42"
 formatWithPadding(1234, '*', 3) //=> "1234"
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 10-formatWithPadding here:
-// Note: padStart() adds characters to the beginning of a string until it reaches the desired length.
-function formatWithPadding(num, char, length) {
-  return num.toString().padStart(length, char);
-}
+def format_with_padding(num, char, length):
+    return str(num).rjust(length, char)
 
-console.log(formatWithPadding(123, "0", 5)); // "00123"
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 11-isPalindrome
 
 Difficulty: Intermediate
@@ -358,19 +290,10 @@ isPalindrome('SEI Rocks') //=> false
 isPalindrome('rotor') //=> true
 isPalindrome('A nut for a jar of tuna') //=> true
 isPalindrome('') //=> true
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 11-isPalindrome here:
-function isPalindrome(str) {
-  const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, "");
-  return cleanStr === cleanStr.split("").reverse().join("");
-}
 
-console.log(isPalindrome("SEI Rocks")); // false
-console.log(isPalindrome("rotor")); // true
-console.log(isPalindrome("A nut for a jar of tuna")); // true
-console.log(isPalindrome("")); // true
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 12-hammingDistance
 
 Difficulty: Intermediate
@@ -393,23 +316,10 @@ hammingDistance('abc', 'abc') //=> 0
 hammingDistance('a1c', 'a2c') //=> 1
 hammingDistance('!!!!', '****') //=> 4
 hammingDistance('abc', 'ab') //=> NaN
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 12-hammingDistance here:
-function hammingDistance(a, b) {
-  if (a.length !== b.length) return NaN;
-  let distance = 0;
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] !== b[i]) distance++;
-  }
-  return distance;
-}
 
-console.log(hammingDistance("abc", "abc")); // 0
-console.log(hammingDistance("a1c", "a2c")); // 1
-console.log(hammingDistance("!!!!", "****")); // 4
-console.log(hammingDistance("abc", "ab")); // NaN
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 13-mumble
 
 Difficulty: Intermediate
@@ -429,21 +339,10 @@ mumble('X') //=> 'X'
 mumble('abc') //=> 'a-bb-ccc'
 mumble('121') //=> '1-22-111'
 mumble('!A 2') //=> '!-AA-   -2222'
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 13-mumble here:
-function mumble(str) {
-  return str
-    .split("")
-    .map((char, i) => char.repeat(i + 1))
-    .join("-");
-}
 
-console.log(mumble("X")); // 'X'
-console.log(mumble("abc")); // 'a-bb-ccc'
-console.log(mumble("121")); // '1-22-111'
-console.log(mumble("!A 2")); // '!-AA-   -2222'
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 14-fromPairs
 
 Difficulty: Intermediate
@@ -464,33 +363,10 @@ fromPairs([ ['a', 1], ['b', 2], ['c', 3] ])
 
 fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) 
 //=> { name: "Sally", age: 24 }
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 14-fromPairs here:
-function fromPairs(pairs) {
-  const obj = {};
-  for (const [key, value] of pairs) {
-    obj[key] = value;
-  }
-  return obj;
-}
 
-console.log(
-  fromPairs([
-    ["a", 1],
-    ["b", 2],
-    ["c", 3],
-  ])
-); // { a: 1, b: 2, c: 3 }
-
-console.log(
-  fromPairs([
-    ["name", "Sam"],
-    ["age", 24],
-    ["name", "Sally"],
-  ])
-); // { name: "Sally", age: 24 }
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 15-mergeObjects
 
 Difficulty: Intermediate
@@ -514,17 +390,10 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4})
 
 mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}) 
 //=> {a: 1, b: 22, c: 3, d: 44}
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 15-mergeObjects here:
-function mergeObjects(...objs) {
-  return Object.assign({}, ...objs);
-}
 
-console.log(mergeObjects({}, { a: 1 })); // { a: 1 }
-console.log(mergeObjects({ a: 1, b: 2, c: 3 }, { d: 4 })); // { a: 1, b: 2, c: 3, d: 4 }
-console.log(mergeObjects({ a: 1, b: 2, c: 3 }, { d: 4 }, { b: 22, d: 44 })); // { a: 1, b: 22, c: 3, d: 44 }
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 16-findHighestPriced
 
 Difficulty: Intermediate
@@ -559,13 +428,10 @@ findHighestPriced([
   { sku: 'd4', price: 10 }
 ])
 //=> { sku: 'b2', price: 50 }
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 16-findHighestPriced here:
-function findHighestPriced(items) {
-  return items.reduce((max, item) => (item.price > max.price ? item : max));
-}
 
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 17-mapArray
 
 Difficulty: Intermediate
@@ -596,28 +462,10 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
   return `${i + 1} - ${f}`
 } )
 //=> ["1 - rose", "2 - tulip", "3 - daisy"]
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 17-mapArray here:
-function mapArray(arr, callback) {
-  const result = [];
-  for (let i = 0; i < arr.length; i++) {
-    result.push(callback(arr[i], i));
-  }
-  return result;
-}
 
-console.log(
-  mapArray([1, 2, 3], function (n) {
-    return n * 2;
-  })
-); // [2, 4, 6]
-console.log(
-  mapArray(["rose", "tulip", "daisy"], function (f, i) {
-    return `${i + 1} - ${f}`;
-  })
-); // ["1 - rose", "2 - tulip", "3 - daisy"]
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 18-reduceArray
 
 Difficulty: Intermediate
@@ -661,48 +509,10 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
   return acc
 }, {} )
 //=> {"Yes": 2, "No": 1, "Maybe": 1}
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 18-reduceArray here:
-function reduceArray(arr, callback, init) {
-  let acc = init;
-  for (let i = 0; i < arr.length; i++) {
-    acc = callback(acc, arr[i], i);
-  }
-  return acc;
-}
 
-console.log(
-  reduceArray(
-    [1, 2, 3],
-    function (acc, n) {
-      return acc + n;
-    },
-    0
-  )
-); // 6
-
-console.log(
-  reduceArray(
-    [1, 2, 3],
-    function (acc, n, i) {
-      return acc + n + i;
-    },
-    0
-  )
-); // 9
-
-console.log(
-  reduceArray(
-    ["Yes", "No", "Yes", "Maybe"],
-    function (acc, v) {
-      acc[v] = acc[v] ? acc[v] + 1 : 1;
-      return acc;
-    },
-    {}
-  )
-); // {"Yes": 2, "No": 1, "Maybe": 1}
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 19-flatten
 
 Difficulty: Intermediate
@@ -724,24 +534,10 @@ flatten( [1, [2, 3]] );
 //=> [1, 2, 3]  (a new array) 
 flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
 //=> [1, 2, 3, 4, 1, 'a', 'b', 'c']
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 19-flatten here:
-function flatten(arr) {
-  const result = [];
-  for (const item of arr) {
-    if (Array.isArray(item)) {
-      result.push(...flatten(item));
-    } else {
-      result.push(item);
-    }
-  }
-  return result;
-}
 
-console.log(flatten([1, [2, 3]])); // [1, 2, 3]
-console.log(flatten([1, [2, [3, [4]]], 1, "a", ["b", "c"]])); // [1, 2, 3, 4, 1, 'a', 'b', 'c']
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 20-primeFactors
 
 Difficulty: Intermediate
@@ -769,25 +565,10 @@ primeFactors(105) //=> [3, 5, 7]
 primeFactors(200) //=> [2, 2, 2, 5, 5]
 
 Hint: Code a nested isPrime(n) helper function that returns true if n is prime, otherwise it returns false
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 20-primeFactors here:
-function primeFactors(n) {
-  const factors = [];
-  let divisor = 2;
-  while (n >= 2) {
-    if (n % divisor === 0) {
-      factors.push(divisor);
-      n = n / divisor;
-    } else {
-      divisor++;
-    }
-  }
-  return factors;
-}
 
-console.log(primeFactors(2)); // [2]
-
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 21-isPrime
 
 Difficulty: Intermediate
@@ -807,10 +588,10 @@ isPrime(3) //=> true
 isPrime(4) //=> false
 isPrime(29) //=> true
 isPrime(200) //=> false
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 21-isPrime here:
 
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 22-intersection
 
 Difficulty: Intermediate
@@ -832,10 +613,10 @@ Examples:
 intersection(['a', 1], []) //=> []
 intersection(['a', 1], [true, 'a', 15]) //=> ['a']
 intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 22-intersection here:
 
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 23-balancedBrackets
 
 Difficulty: Intermediate
@@ -859,10 +640,10 @@ balancedBrackets( '(]' ) // => false
 balancedBrackets( '[{}]' ) // => true
 balancedBrackets( '[(])' ) // => false
 balancedBrackets( '[({}[])]' ) // => true
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 23-balancedBrackets here:
 
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 24-isWinningTicket
 
 Difficulty:Intermediate
@@ -893,10 +674,10 @@ isWinningTicket( [ ['ABC', 65] ] ) // => true
 isWinningTicket( [ ['ABC', 999], ['XY', 89] ] ) // => false
 isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ) // => true
 isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 24-isWinningTicket here:
 
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 25-getNumForIP
 
 Difficulty: Intermediate
@@ -933,10 +714,10 @@ getNumForIP( '0.0.0.1' ) // => 1
 getNumForIP( '0.0.2.0' ) // => 512
 getNumForIP( '192.156.99.15' ) // => 3231474447
 getNumForIP( '10.0.0.1' ) // => 167772161
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 25-getNumForIP here:
 
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 26-toCamelCase
 
 Difficulty: Intermediate
@@ -962,10 +743,10 @@ toCamelCase( 'sei-rocks' ) // => 'seiRocks'
 toCamelCase( 'banana_Turkey_potato' ) // => 'bananaTurkeyPotato'
 toCamelCase( 'Mama-mia' ) // => 'MamaMia'
 toCamelCase( 'A_b_c' ) // => 'ABC'
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 26-toCamelCase here:
 
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 27-countTheBits
 
 Difficulty: Intermediate
@@ -993,10 +774,10 @@ countTheBits( 13 ) // => 3
 countTheBits( 256 ) // => 1
 countTheBits( 255 ) //=> 8
 countTheBits( 65535 ) //=> 16
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 27-countTheBits here:
 
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 28-gridTrip
 
 Difficulty: Intermediate
@@ -1029,10 +810,10 @@ Examples:
 gridTrip( [0, 0], 'U2R1' ) // => [1, 2]
 gridTrip( [10, 5], 'D5L15U2' ) //-> [-5, 2]
 gridTrip( [100, -22], 'L2L15D50U1D9') //=> [83, -80]
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 28-gridTrip here:
 
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 29-addChecker
 
 Difficulty: Intermediate
@@ -1060,10 +841,10 @@ addChecker( [1, 2], 3 ) // => true
 addChecker( [-3, 2], 9 ) // => false
 addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 29-addChecker here:
 
-/*-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 Challenge: 30-totalTaskTime
 
 Difficulty: Difficult
@@ -1092,5 +873,5 @@ totalTaskTime( [5, 8], 2 ) // => 8
 totalTaskTime( [4, 2, 10], 2 ) // => 12
 totalTaskTime( [2, 2, 3, 3, 4, 4], 2 ) //=> 9
 totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------
 // Your solution for 30- here:
