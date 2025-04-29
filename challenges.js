@@ -12,7 +12,7 @@ Examples:
 sayHello() //=> Hello!
 -----------------------------------------------------------------------------*/
 // Your solution for 00-sayHello (example) here:
-
+// Note: Functions are blocks of reusable code. The function below simply returns a string "Hello!" when called.
 function sayHello() {
   return "Hello!";
 }
@@ -33,7 +33,7 @@ addOne(1) //=> 2
 addOne(-5) //=> -4
 -----------------------------------------------------------------------------*/
 // Your solution for 01-addOne here:
-
+// Note: The function below takes a single number as an argument and returns that number plus 1.
 function addOne(number) {
   return number + 1;
 }
@@ -60,7 +60,8 @@ addTwoNumbers(0, 0) //=> 0
 addTwoNumbers('Hello', 5) //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 02-addTwoNumbers here:
-
+// Note: The function below accepts two numeric arguments and returns the sum of those two numbers.
+// Note: Use typeof to check the data type of a variable.
 function addTwoNumbers(a, b) {
   if (typeof a !== "number" || typeof b !== "number") {
     return NaN;
@@ -92,7 +93,7 @@ sumNumbers([2, 10, -5]) //=> 7
 sumNumbers([]) //=> 0
 -----------------------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
-
+// Note: The function below accepts a single array of numbers and returns the sum of the numbers in the array using the reduce() method.
 function sumNumbers(numbers) {
   if (numbers.length === 0) {
     return 0;
@@ -124,7 +125,7 @@ addList(1,50,1.23) //=> 52.23
 addList(7,-12) //=> -5
 -----------------------------------------------------------------------------*/
 // Your solution for 04-addList here:
-
+// Note: This uses the spread operator (...) to handle any number of arguments passed to the function.
 function addList(...numbers) {
   if (numbers.length === 0) {
     return 0;
@@ -158,7 +159,7 @@ computeRemainder(4,0) //=> Infinity
 computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------------------*/
 // Your solution for 05-computeRemainder here:
-
+// Note: Without using the modulus (%) operator, the function below accepts two numeric arguments and returns the remainder of the division of those two numbers.
 function computeRemainder(dividend, divisor) {
   if (divisor === 0) {
     return Infinity;
@@ -192,7 +193,7 @@ range(1,1) //=> []
 range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------------------*/
 // Your solution for 06-range here:
-
+// Note: Loops can generate arrays by pushing values to an empty array.
 function range(start, end) {
   if (start > end) {
     return "First argument must be less than second";
@@ -227,6 +228,12 @@ Examples:
 reverseUpcaseString("SEI Rocks!") //=> "!SKCOR IES" 
 -----------------------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
+// Note: split() turns a string into an array, reverse() reverses it, and join() combines it.
+function reverseUpcaseString(str) {
+  return str.split("").reverse().join("").toUpperCase();
+}
+
+console.log(reverseUpcaseString("SEI Rocks!")); // "!SKCOR IES"
 
 /*-----------------------------------------------------------------------------
 Challenge: 08-removeEnds
@@ -245,6 +252,12 @@ removeEnds('SEB Rocks!') //=> "EB Rocks"
 removeEnds('a') //=> "" (empty string)
 -----------------------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
+// Note: slice() extracts a section of a string and returns it as a new string.
+function removeEnds(str) {
+  return str.length < 3 ? "" : str.slice(1, -1);
+}
+
+console.log(removeEnds("SEB Rocks!")); // "EB Rocks"
 
 /*-----------------------------------------------------------------------------
 Challenge: 09-charCount
@@ -283,7 +296,16 @@ charCount('Today is fantastic!')
 }
 -----------------------------------------------------------------------------*/
 // Your solution for 09-charCount here:
+// Note: Objects store key-value pairs and are useful for storing data in a structured way. This counts characters as keys.
+function charCount(str) {
+  const count = {};
+  for (const char of str) {
+    count[char] = count[char] ? count[char] + 1 : 1;
+  }
+  return count;
+}
 
+console.log(charCount("hello")); // { h: 1, e: 1, l: 2, o: 1 }
 /*-----------------------------------------------------------------------------
 Challenge: 10-formatWithPadding
 
@@ -309,7 +331,12 @@ formatWithPadding(42, '*', 10) //=> "********42"
 formatWithPadding(1234, '*', 3) //=> "1234"
 -----------------------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
+// Note: padStart() adds characters to the beginning of a string until it reaches the desired length.
+function formatWithPadding(num, char, length) {
+  return num.toString().padStart(length, char);
+}
 
+console.log(formatWithPadding(123, "0", 5)); // "00123"
 /*-----------------------------------------------------------------------------
 Challenge: 11-isPalindrome
 
