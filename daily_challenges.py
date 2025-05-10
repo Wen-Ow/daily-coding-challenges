@@ -292,7 +292,10 @@ isPalindrome('A nut for a jar of tuna') //=> true
 isPalindrome('') //=> true
 ----------------------------------------------------------------------------
 // Your solution for 11-isPalindrome here:
-
+def is_palindrome(s):
+    cleaned = ''.join(c.lower() for c in s if c != ' ')
+    return cleaned == cleaned[::-1]
+# A palindrome reads the same forwards and backwards, ignoring spaces and case.
 #-----------------------------------------------------------------------------
 Challenge: 12-hammingDistance
 
@@ -318,7 +321,12 @@ hammingDistance('!!!!', '****') //=> 4
 hammingDistance('abc', 'ab') //=> NaN
 ----------------------------------------------------------------------------
 // Your solution for 12-hammingDistance here:
+def hamming_distance(s1, s2):
+    if len(s1) != len(s2):
+        return float('nan')
+    return sum(c1 != c2 for c1, c2 in zip(s1, s2))
 
+# Hamming distance counts the number of differing characters between two same-length strings.
 #-----------------------------------------------------------------------------
 Challenge: 13-mumble
 
@@ -341,7 +349,9 @@ mumble('121') //=> '1-22-111'
 mumble('!A 2') //=> '!-AA-   -2222'
 ----------------------------------------------------------------------------
 // Your solution for 13-mumble here:
-
+def mumble(s):
+    return '-'.join(char * (i + 1) for i, char in enumerate(s))
+# Repeats each character based on its position (1-indexed), joined by hyphens.
 #-----------------------------------------------------------------------------
 Challenge: 14-fromPairs
 
@@ -365,7 +375,9 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ])
 //=> { name: "Sally", age: 24 }
 ----------------------------------------------------------------------------
 // Your solution for 14-fromPairs here:
-
+def from_pairs(pairs):
+    return {key: value for key, value in pairs}
+# Builds a dictionary from a list of [key, value] pairs.
 #-----------------------------------------------------------------------------
 Challenge: 15-mergeObjects
 
@@ -392,7 +404,12 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44})
 //=> {a: 1, b: 22, c: 3, d: 44}
 ----------------------------------------------------------------------------
 // Your solution for 15-mergeObjects here:
-
+def merge_objects(*dicts):
+    result = dicts[0].copy()
+    for d in dicts[1:]:
+        result.update(d)
+    return result
+# Merges multiple dictionaries into the first one, overwriting keys with later values.
 #-----------------------------------------------------------------------------
 Challenge: 16-findHighestPriced
 
